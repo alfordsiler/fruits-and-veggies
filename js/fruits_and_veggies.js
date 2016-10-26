@@ -105,7 +105,6 @@ var vegetables = [
   'Rutabaga',
   'Turnip',
   'Radish',
-  'Turnip',
   'Horseradish',
   'Spinach',
   'Zucchini',

@@ -1,1 +1,18 @@
 /* file for your css */
+
+.box {
+  text-align: center;
+  height: 50px;
+}
+
+.right-button {
+  height: 30px;
+}
+
+.left-button {
+  height: 30px;
+}
+
+.red {
+  color: red;
+}

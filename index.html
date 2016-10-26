@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="fruitsVeggies">
     <head>
         <title>Fruit and Veggies</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
@@ -9,19 +9,57 @@
         <script src="js/fruits_and_veggies_test.js"></script>
         <script src="js/app.js"></script>
     </head>
-    <body>
+    <body ng-controller="list">
         <div class="container">
-            <h1>Fruit and Veggies</h1>
+            <div style="text-align: center;">
+              <h1>Fruit and Veggies</h1>
+            </div>
+            <div ng-if="produce.length === 0 && loser === false" style="text-align: center; color: red">
+              <h2>You Know Your Produce, You Win!</h2>
+            </div>
+            <div ng-if="produce.length === 0 && loser === true" style="text-align: center; color: red">
+              <h2>Try again loser!</h2>
+            </div>
+            <br>
             <div class="row">
+
                 <div class="col-sm-4">
-                    col 1
+                    <div style="text-align: center;">Fruits</div>
+                    <ul class="list-group">
+                      <div>
+                        <li class="box list-group-item" ng-repeat="fruit in fruits track by $index" ng-class="{red: color ==='red'}">
+                          {{fruit}}
+                          <button ng-click="moveFruitRight($index)" class="btn btn-primary right-button pull-right">&#x2192;</button>
+                        </li>
+                      </div>
+                    </ul>
                 </div>
+
                 <div class="col-sm-4">
-                    col 2
+                    <div style="text-align: center;">Produce</div>
+                    <ul class="list-group">
+                      <div>
+                        <li class="box list-group-item" ng-repeat="produce in produce track by $index">
+                          <button ng-click="moveLeft($index)" class="btn btn-primary left-button pull-left">&#x2190;</button>
+                          {{produce}}
+                          <button ng-click="moveRight($index)" class="btn btn-primary right-button pull-right">&#x2192;</button>
+                        </li>
+                      </div>
+                    </ul>
                 </div>
+
                 <div class="col-sm-4">
-                    col 3
+                    <div style="text-align: center;">Veggies</div>
+                    <ul class="list-group">
+                      <div>
+                        <li class="box list-group-item" ng-repeat="veggie in veggies track by $index" ng-class="{red: color ==='red'}">
+                          <button ng-click="moveVeggieLeft($index)" class="btn btn-primary left-button pull-left">&#x2190;</button>
+                          {{veggie}}
+                        </li>
+                      </div>
+                    </ul>
                 </div>
+
             </div>
         </div>
     </body>
